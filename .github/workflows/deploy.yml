@@ -37,4 +37,4 @@ jobs:
     - name: Install Surge
       run: npm install -g surge
     - name: Run Surge
-      run: surge ./ umair-shoe-store-app.surge.sh --token ${{secrets.SURGE_TOKEN}}
+      run: surge ./build umair-shoe-store-app.surge.sh --token ${{secrets.SURGE_TOKEN}}

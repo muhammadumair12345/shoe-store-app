@@ -6,6 +6,7 @@ function App() {
       <h1>Shoe Store App</h1>
       <p>This is my Shoe Store</p>
       <p>I am Muhammad Umair</p>
+      <p>Welcome to our app</p>
     </div>
   );
 }

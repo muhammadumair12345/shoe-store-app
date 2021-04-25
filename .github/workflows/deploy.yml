@@ -6,7 +6,7 @@ name: Deploy Website
 # events but only for the master branch
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -17,24 +17,24 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
-    - name: Install NodeJS
-      uses: actions/setup-node@v2-beta
-      with: 
-        node-version: 12
-        
-   # Install npm packages
-    - name: Install packages
-      run: npm install
+      # Runs a single command using the runners shell
+      - name: Install NodeJS
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: 12
 
-    # Build react app
-    - name: Build the app
-      run: npm run build  
-        
-    - name: Install Surge
-      run: npm install -g surge
-    - name: Run Surge
-      run: surge ./build umair-shoe-store-app.surge.sh --token ${{secrets.SURGE_TOKEN}}
+      # Install npm packages
+      - name: Install packages
+        run: npm install
+
+      # Build react app
+      - name: Build the app
+        run: CI='' npm run build
+
+      - name: Install Surge
+        run: npm install -g surge
+      - name: Run Surge
+        run: surge ./build umair-shoe-store-app.surge.sh --token ${{secrets.SURGE_TOKEN}}

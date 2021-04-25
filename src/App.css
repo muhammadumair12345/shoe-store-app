@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+  height: 25vh;
+  color: aliceblue;
+}
+
+.nav {
+  width: 100%;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  justify-content: space-around;
+}

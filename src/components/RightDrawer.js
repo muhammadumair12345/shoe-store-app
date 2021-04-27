@@ -10,7 +10,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import '../App.css';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import FontIcons from "./FontIcons";
 
 
@@ -49,7 +49,7 @@ export default function RightDrawer() {
     >
         <List>
             {["Home","Men", "Women", "Kids"].map((text, index) => (
-            <Link to={links[index]}  className="drawer-list" key={index}>
+            <NavLink to={links[index]}  className="drawer-list" key={index}>
                 <ListItem button key={index}>
                 <ListItemIcon>
                     <FontIcons loc={index}/>
@@ -57,7 +57,7 @@ export default function RightDrawer() {
                 <ListItemText primary={text}/>
                 </ListItem>
                 {index===0?<Divider />:""}
-            </Link>
+            </NavLink>
             ))}
         </List>
     </div>

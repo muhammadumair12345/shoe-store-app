@@ -9,7 +9,7 @@ const ShoesList = ({shoesList,shoesType}) => {
             <h1>Shoes List</h1>
             {Object.entries(shoesList).map(([id,{name,price,itemsLeft,img}])=>(
             <Link to={`/${shoesType}/${id}`} key={id}>
-                <Card style={{margin:20}}>
+                <Card>
                     <CardContent>
                             <img src={img} alt={name} />
                             <h2>{name}</h2>

@@ -3,7 +3,7 @@ import { IconButton,Badge, Card } from '@material-ui/core';
 import {  ShoppingCart } from '@material-ui/icons';
 import RightDrawer from './RightDrawer';
 import { NavLink } from 'react-router-dom';
-import logo from "../images/logo.png";
+import logo from "../images/logo.jpg";
 import '../App.css';
 import FontIcons from './FontIcons';
 

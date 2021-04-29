@@ -19,7 +19,7 @@ const Home = () => {
                         <CardMedia
                         component="img"
                         height="150"
-                        alt="Men Shoes"
+                        alt={text}
                         image={img[index]}
                         />
                         <CardContent>

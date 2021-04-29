@@ -20,7 +20,7 @@ const Header = () => {
             <div  className="nav">
                 {
                     ["HOME","MEN","WOMEN","KIDS"].map((text,index)=>(
-                    <NavLink to={links[index]} key={index}>
+                    <NavLink to={links[index]} key={index} activeClassName="active" end>
                         <FontIcons loc={index}/>
                         <h4>{text}</h4>
                     </NavLink>

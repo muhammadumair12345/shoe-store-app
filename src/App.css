@@ -45,6 +45,10 @@ a {
 }
 
 .nav > a:hover {
+  border-bottom: 4px solid rgb(200, 194, 194);
+}
+
+.nav > .active {
   border-bottom: 4px solid black;
 }
 
@@ -91,6 +95,53 @@ a {
   margin: 10px;
 }
 
+/* Shoes */
+
+.shoes {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Shoes List */
+.shoes-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.shoes-list-card {
+  width: 350px;
+  min-height: 260px;
+  margin: 10px;
+}
+
+.add-to-cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Selected Shoe */
+.selected-shoe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected-shoe-card {
+  display: flex;
+  margin: 10px;
+}
+
+.card-action {
+  flex: 2;
+}
+
+.card-content {
+  flex: 1;
+}
+
 /* Responsive */
 
 @media (max-width: 650px) {
@@ -108,5 +159,8 @@ a {
   }
   .card {
     width: 100%;
+  }
+  .selected-shoe-card {
+    flex-direction: column;
   }
 }

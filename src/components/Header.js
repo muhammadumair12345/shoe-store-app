@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { IconButton,Badge, Card } from '@material-ui/core';
 import {  ShoppingCart } from '@material-ui/icons';
 import RightDrawer from './RightDrawer';
@@ -6,8 +6,10 @@ import { NavLink } from 'react-router-dom';
 import logo from "../images/logo.jpg";
 import '../App.css';
 import FontIcons from './FontIcons';
+import { ShoesContext } from '../context/ShoesContext';
 
 const Header = () => {
+    const {badgeValue}=useContext(ShoesContext);
     const links=["/","/men-shoes","/women-shoes","/kids-shoes"];
 
     return (
@@ -30,7 +32,7 @@ const Header = () => {
             <div className="cart">
                 <NavLink to="/cart"> 
                     <IconButton color="inherit">
-                        <Badge badgeContent={4} color="secondary">
+                        <Badge badgeContent={badgeValue} color="secondary">
                             <ShoppingCart fontSize="small"/>
                         </Badge>
                    </IconButton>

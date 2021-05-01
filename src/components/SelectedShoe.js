@@ -1,15 +1,26 @@
 import { Card,CardContent, Typography,CardActionArea,CardMedia, Button } from '@material-ui/core';
 import { ShoppingCartOutlined } from '@material-ui/icons';
-import React from 'react';
+import React,{useContext} from 'react';
 import { useParams } from 'react-router';
 import "../App.css";
+import { ShoesContext } from '../context/ShoesContext';
 
 const SelectedShoe = ({shoesList}) => {
+    const {setBadgeValue}=useContext(ShoesContext);
     const {id}=useParams();
     const shoe=shoesList[id];
 
     if(!shoe){
         return <h2>Not Found!</h2>
+    }
+
+    
+    const addValueListner=()=>{
+        if(shoe.itemsLeft>0)
+        {
+            setBadgeValue(prevBadgeValue=>++prevBadgeValue);
+            shoe.itemsLeft-=1;
+        }
     }
 
     return (
@@ -28,9 +39,10 @@ const SelectedShoe = ({shoesList}) => {
                     <Typography gutterBottom variant="h6" className="font">
                         {shoe.name}
                     </Typography>
-                    <Typography gutterBottom  variant="body2" className="font">PRICE {shoe.price}</Typography>
+                    <Typography gutterBottom  variant="body2" className="font">PRICE ${shoe.price}</Typography>
                     <Typography gutterBottom variant="body2" className="font">ITEMS LEFT {shoe.itemsLeft}</Typography>
                     <Button
+                    onClick={(e)=>addValueListner()}
                     style={{marginTop:"30px",width:"100%"}}
                     size="small"
                     className="font"

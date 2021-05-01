@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../App.css';
 import {Routes,Route} from 'react-router-dom';
 import Home from './Home';
@@ -6,9 +6,10 @@ import Shoes from './Shoes';
 import Cart from './Cart';
 import SelectedShoe from './SelectedShoe';
 import ShoesList from './ShoesList';
-import shoesList from '../shoesList.json';
+import { ShoesContext } from '../context/ShoesContext';
 
 const Section = () => {
+    const {shoesList}=useContext(ShoesContext);
     return (
         <div className="section">
             <Routes>

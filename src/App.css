@@ -142,6 +142,36 @@ a {
   flex: 1;
 }
 
+/* Cart */
+.cart-container {
+  width: 90%;
+  flex-grow: 1;
+}
+
+.cart-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cart-history,
+.cart-summery {
+  margin: 20px;
+}
+
+.cart-history {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+}
+
+.cart-history > :nth-child(even) {
+  margin: 10px 0px 10px 0px;
+}
+
+.cart-summery {
+  flex: 1;
+}
+
 /* Responsive */
 
 @media (max-width: 650px) {

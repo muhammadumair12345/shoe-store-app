@@ -1,11 +1,21 @@
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { Card, CardContent,CardActionArea,CardMedia,Typography, IconButton } from '@material-ui/core';
-import React from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
+import { ShoesContext } from '../context/ShoesContext';
 
 const ShoesList = ({shoesList,shoesType}) => {
+    const {setBadgeValue}=useContext(ShoesContext);
+
+    const addValueListner=(id)=>{
+        if(shoesList[id].itemsLeft>0)
+        {
+            setBadgeValue(prevBadgeValue=>++prevBadgeValue);
+            shoesList[id].itemsLeft-=1;
+        }
+    }
 
     return (
         <div className="shoes-list">
@@ -22,13 +32,13 @@ const ShoesList = ({shoesList,shoesType}) => {
                     </CardActionArea>
                 </Link>
                 <CardContent>
-                    <Typography gutterBottom variant="h6" align="center">
+                    <Typography gutterBottom variant="h6" align="center" className="font">
                         {name}
                     </Typography>
-                    <Typography gutterBottom variant="body2">PRICE {price}</Typography>
+                    <Typography gutterBottom variant="body2" className="font">PRICE ${price}</Typography>
                     <div className="add-to-cart">
-                        <Typography variant="body2">ITEMS LEFT {itemsLeft}</Typography>
-                        <IconButton color="inherit">
+                        <Typography variant="body2" className="font">ITEMS LEFT {itemsLeft}</Typography>
+                        <IconButton color="inherit" onClick={(e)=>addValueListner(id)}>
                                 <FontAwesomeIcon icon={faCartPlus} size="xs" />
                         </IconButton>
                     </div>
@@ -39,4 +49,4 @@ const ShoesList = ({shoesList,shoesType}) => {
     )
 }
 
-export default ShoesList
+export default React.memo(ShoesList)

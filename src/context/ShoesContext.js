@@ -5,9 +5,10 @@ export const ShoesContext=createContext(shoesList);
 
 export const ShoesProvider = ({children}) => {
     const [badgeValue,setBadgeValue]=useState(0);
+    const [cartItems,setCartItems]=useState(null);
 
     return (
-        <ShoesContext.Provider value={{shoesList,badgeValue,setBadgeValue}}>
+        <ShoesContext.Provider value={{shoesList,badgeValue,setBadgeValue,setCartItems,cartItems}}>
             {children}
         </ShoesContext.Provider>
     )

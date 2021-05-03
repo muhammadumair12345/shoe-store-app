@@ -6,7 +6,7 @@ import "../App.css";
 import { ShoesContext } from '../context/ShoesContext';
 
 const SelectedShoe = ({shoesList}) => {
-    const {setBadgeValue}=useContext(ShoesContext);
+    const {setBadgeValue,cartItems,setCartItems}=useContext(ShoesContext);
     const {id}=useParams();
     const shoe=shoesList[id];
 
@@ -14,11 +14,23 @@ const SelectedShoe = ({shoesList}) => {
         return <h2>Not Found!</h2>
     }
 
-    
     const addValueListner=()=>{
         if(shoe.itemsLeft>0)
         {
             setBadgeValue(prevBadgeValue=>++prevBadgeValue);
+            cartItems!==null?setCartItems([...cartItems,{
+                id,
+                img:shoe.img,
+                name:shoe.name,
+                price:shoe.price,
+                itemsLeft:shoe.itemsLeft,
+            }]):setCartItems([{
+                id,
+                img:shoe.img,
+                name:shoe.name,
+                price:shoe.price,
+                itemsLeft:shoe.itemsLeft,
+            }]);
             shoe.itemsLeft-=1;
         }
     }

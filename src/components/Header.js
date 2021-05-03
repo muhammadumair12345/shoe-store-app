@@ -35,7 +35,7 @@ const Header = () => {
                         <Badge badgeContent={badgeValue} color="secondary">
                             <ShoppingCart fontSize="small"/>
                         </Badge>
-                   </IconButton>
+                    </IconButton>
                 </NavLink>
                 <RightDrawer/>    
             </div>

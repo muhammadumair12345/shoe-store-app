@@ -5,12 +5,14 @@ import '../App.css';
 import { ShoesContext } from '../context/ShoesContext';
 
 const Cart = () => {
-    const {cartItems,setCartItems,setBadgeValue}=useContext(ShoesContext);
+    const {cartItems,setCartItems,setBadgeValue,badgeValue,totalPrice,setTotalPrice}=useContext(ShoesContext);
+
     const deleteCart=(id)=>{
          const newItems= cartItems.filter((items)=>items.id!==id);
          setCartItems(newItems);
          setBadgeValue(prevValue=>--prevValue)
     }
+
     return (
         <div className="cart-container">
             <Typography className="font" variant="h4" style={{marginTop:"20px"}} align="center" gutterBottom>Your Cart</Typography>
@@ -47,8 +49,8 @@ const Cart = () => {
                         <CardContent>
                             <Typography className="font" variant="h5" gutterBottom>ORDER SUMMERY</Typography>
                             <div className="flex1">
-                                <Typography gutterBottom variant="body2" className="font" >3ITEMS</Typography>
-                                <Typography gutterBottom variant="body2" className="font" >$500</Typography>
+                                <Typography gutterBottom variant="body2" className="font" >{badgeValue}ITEMS</Typography>
+                                <Typography gutterBottom variant="body2" className="font" >${totalPrice}</Typography>
                             </div>
                             <div className="flex1">
                                 <Typography gutterBottom  variant="body2" className="font">DELEVERY</Typography>
@@ -60,7 +62,7 @@ const Cart = () => {
                             </div>
                             <div className="flex1">
                                 <Typography gutterBottom variant="body2" className="font">TOTAL</Typography>
-                                <Typography gutterBottom  variant="body2" className="font">$500</Typography>
+                                <Typography gutterBottom  variant="body2" className="font">${totalPrice}</Typography>
                             </div>
                             <Button
                             style={{marginTop:"30px",width:"100%"}}

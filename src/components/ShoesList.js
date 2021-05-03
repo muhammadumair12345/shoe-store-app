@@ -7,7 +7,7 @@ import '../App.css';
 import { ShoesContext } from '../context/ShoesContext';
 
 const ShoesList = ({shoesList,shoesType}) => {
-    const {setBadgeValue,cartItems,setCartItems}=useContext(ShoesContext);
+    const {setBadgeValue,cartItems,setCartItems,setTotalPrice}=useContext(ShoesContext);
 
     const addValueListner=(id)=>{
         if(shoesList[id].itemsLeft>0)
@@ -26,6 +26,7 @@ const ShoesList = ({shoesList,shoesType}) => {
                 price:shoesList[id].price,
                 itemsLeft:shoesList[id].itemsLeft,
             }]);
+            setTotalPrice(prevPrice=>prevPrice+=shoesList[id].price);
             shoesList[id].itemsLeft-=1;
         }
     }

@@ -6,7 +6,7 @@ import "../App.css";
 import { ShoesContext } from '../context/ShoesContext';
 
 const SelectedShoe = ({shoesList}) => {
-    const {setBadgeValue,cartItems,setCartItems}=useContext(ShoesContext);
+    const {setBadgeValue,cartItems,setCartItems,setTotalPrice}=useContext(ShoesContext);
     const {id}=useParams();
     const shoe=shoesList[id];
 
@@ -31,6 +31,7 @@ const SelectedShoe = ({shoesList}) => {
                 price:shoe.price,
                 itemsLeft:shoe.itemsLeft,
             }]);
+            setTotalPrice(prevPrice=>prevPrice+=shoe.price);
             shoe.itemsLeft-=1;
         }
     }
@@ -59,7 +60,7 @@ const SelectedShoe = ({shoesList}) => {
                     size="small"
                     className="font"
                     variant="contained"
-                    color="inherit"
+                    color="secondary"
                     startIcon={<ShoppingCartOutlined />}
                     >
                         ADD To CART
